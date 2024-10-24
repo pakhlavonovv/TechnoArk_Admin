@@ -1,6 +1,5 @@
 import { useState, useEffect, JSXElementConstructor, ReactElement, ReactNode, ReactPortal } from "react";
 import { useNavigate, Outlet, useLocation, NavLink, NavLinkRenderProps, To } from "react-router-dom";
-import logo from "../../../assets/images/logo.png";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,

@@ -5,16 +5,14 @@ import { useSignUpMutation } from "../hooks/mutations";
 import { Notification } from "../../../utils/notification";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const SignUp = () => {
   const { mutate } = useSignUpMutation();
   const navigate = useNavigate();
   
-  // Contextdan foydalanuvchi ma'lumotlarini olish
   const userContext = useContext(UserContext);
   
-  // Boshlang'ich qiymatni konteksdan olish
   const initialValues: SignUpType = {
     first_name: userContext?.user?.first_name || "",
     last_name: userContext?.user?.last_name || "",
@@ -26,17 +24,14 @@ const SignUp = () => {
   function handleSubmit(values: SignUpType): void {
     const payload = { ...values };
     
-    // Ma'lumotlarni serverga jo'natish
     mutate(payload, {
       onSuccess: (res) => {
         console.log(res);
         
-        // Kontekstdagi foydalanuvchini yangilash
         if (userContext) {
           userContext.updateUser(values);
         }
 
-        // Sahifani navigate qilish
         navigate("/admin-layout");
       },
       onError: (error) => {

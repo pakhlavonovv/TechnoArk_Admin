@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGetBrandCategory} from "../hooks/queries";
-import { Button, Tooltip, Popconfirm, Space, Input } from "antd";
+import { Button, Tooltip, Popconfirm, Space } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { GlobalTable, Loading } from "@components";
 import { ColumnsType } from "antd/es/table";
